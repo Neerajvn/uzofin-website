@@ -5,135 +5,14 @@
   <title>Uzofin</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles/preloader.css">
   <link rel="preload" as="image" href="/assets/uzofin-logo.svg">
   <link rel="preload" as="image" href="/assets/main-block-bg-l.png">
   <link rel="preload" as="image" href="/assets/main-block-bg-r.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    html,
-    body {
-      margin: 0;
-      background: #000;
-    }
-
-    html.is-loading,
-    html.is-loading body {
-      overflow: hidden;
-    }
-
-    #preloader {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at center, rgb(56 192 238 / 16%), transparent 34%),
-        #000;
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 560ms ease 160ms, visibility 0s linear 720ms;
-    }
-
-    #preloader.is-done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .preloader__mark {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: preloader-in 700ms ease both;
-    }
-
-    #preloader.is-done .preloader__mark {
-      animation: none;
-      opacity: 0;
-      transform: translateY(-8px);
-      transition: opacity 420ms ease, transform 560ms ease;
-    }
-
-    .preloader__mark img {
-      width: min(168px, 46vw);
-      height: auto;
-    }
-
-    .preloader__bar {
-      width: 92px;
-      height: 2px;
-      margin-top: 22px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgb(255 255 255 / 14%);
-    }
-
-    .preloader__bar span {
-      display: block;
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #38c0ee 0%, #7aa2ff 48%, #9b6bff 100%);
-      animation: preloader-fill 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    #preloader.is-done .preloader__bar span {
-      width: 100%;
-      animation: none;
-      transition: width 220ms ease;
-    }
-
-    .preloader__text {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    @keyframes preloader-in {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    @keyframes preloader-fill {
-      to {
-        width: 78%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      #preloader,
-      #preloader.is-done .preloader__mark,
-      #preloader.is-done .preloader__bar span {
-        transition: none;
-      }
-
-      .preloader__mark,
-      .preloader__bar span {
-        animation: none;
-      }
-
-      .preloader__bar span {
-        width: 78%;
-      }
-    }
-  </style>
 </head>
 <body>
   <div id="preloader" role="status" aria-live="polite" aria-busy="true">
