@@ -1,0 +1,10 @@
+<section class="logos" aria-label="Companies">
+  <p>Powering tools and integration for companies around the world</p>
+  <ul>
+    @for (logo of logos; track logo.src) {
+      <li>
+        <img [src]="logo.src" [alt]="logo.alt" />
+      </li>
+    }
+  </ul>
+</section>

@@ -1,0 +1,36 @@
+<section class="why">
+  <div class="why__head">
+    <h2>Why <span class="why__brand">UzOFin?</span></h2>
+    <p>
+      Discover endless creativity with PromptVerse. Generate diverse content effortlessly using
+      prompts. Stay updated with real-time trends, automate tasks, and extract insights from any
+      document or URL. All within a sleek, futuristic design. Create more, effortlessly.
+    </p>
+  </div>
+
+  <div class="why__marquee" aria-hidden="false">
+    @for (row of rows; track row.direction + $index) {
+      <div
+        class="why__row"
+        [class.why__row--left]="row.direction === 'left'"
+        [class.why__row--right]="row.direction === 'right'"
+      >
+        <div class="why__track">
+          @for (copy of [0, 1]; track copy) {
+            <ul class="why__group">
+              @for (card of row.cards; track $index) {
+                <li class="why__card">
+                  <svg class="why__arrow" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M3 13 13 3M13 3H5.5M13 3v7.5" fill="none" stroke="currentColor" stroke-width="1.25" />
+                  </svg>
+                  <h3>{{ card.title }}</h3>
+                  <p>{{ card.description }}</p>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

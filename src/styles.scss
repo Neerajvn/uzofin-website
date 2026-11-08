@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --header-h: 84px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-h: 64px;
+  }
+}
+
+body {
+  margin: 0;
+  background: #000;
+}

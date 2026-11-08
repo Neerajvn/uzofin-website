@@ -1,0 +1,107 @@
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 225deg;
+}
+
+:host {
+  display: inline-flex;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 15px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #8c01fa 0%, #000000 100%) padding-box,
+    linear-gradient(#8c01fa, #8c01fa) border-box;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 120ms linear;
+}
+
+.btn--outline {
+  --border-angle: 225deg;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      #ba9cff,
+      #300056,
+      #ba9cff
+    )
+    border-box;
+  transition: --border-angle 220ms linear;
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  --border-angle: 405deg;
+}
+
+.arrow-slot {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex: none;
+}
+
+.arrow-track {
+  display: flex;
+  gap: 6px;
+  transform: translateX(calc(-2 * (16px + 6px)));
+  transition: transform 220ms linear;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+button:not(.btn--outline):hover,
+button:not(.btn--outline):focus-visible {
+  background:
+    linear-gradient(90deg, #8c01fa 0%, #440178 100%) padding-box,
+    linear-gradient(90deg, #8c01fa 0%, #440178 100%) border-box;
+  transition: background 420ms ease 220ms;
+}
+
+button:hover .arrow-track,
+button:focus-visible .arrow-track {
+  transform: translateX(0);
+}
+
+@media (max-width: 480px) {
+  button {
+    justify-content: center;
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button,
+  .arrow-track {
+    transition: none;
+  }
+
+}

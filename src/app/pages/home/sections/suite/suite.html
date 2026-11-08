@@ -1,0 +1,23 @@
+<section class="suite">
+  <div class="suite__grid">
+    <div class="suite__intro">
+      <h2>Our Intelligent Financial Suite</h2>
+      <p>Tools That Accelerate Every Step Of Your Financial Workflow.</p>
+    </div>
+
+    <div class="suite__features">
+      @for (column of columns; track $index) {
+        <div class="suite__col" [class.suite__col--raise]="$index === 1">
+          @for (feature of column; track feature.title) {
+            <article class="feature" [class]="'feature feature--' + feature.tone">
+              <h3>{{ feature.title }}</h3>
+              <p class="feature__body">{{ feature.body }}</p>
+              <p class="feature__value">{{ feature.value }}</p>
+              <p class="feature__label">{{ feature.label }}</p>
+            </article>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

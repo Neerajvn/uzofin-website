@@ -1,0 +1,38 @@
+<section class="industry">
+  <div class="industry__bg" aria-hidden="true">
+    <div class="industry__glow industry__glow--purple"></div>
+    <div class="industry__glow industry__glow--blue"></div>
+  </div>
+
+  <div class="industry__head">
+    <p class="industry__eyebrow">24/7 support</p>
+    <h2>
+      Industry
+      <span class="industry__accent">Standard</span>
+    </h2>
+  </div>
+
+  <div class="industry__viewport">
+    <div class="industry__track">
+      <ul class="industry__group">
+        @for (card of marqueeCards; track $index) {
+          <li class="industry__card">
+            <img
+              class="industry__tick"
+              src="/assets/circle_tick.svg"
+              alt=""
+              width="48"
+              height="48"
+              aria-hidden="true"
+            />
+            <h3>{{ card.title }}</h3>
+            <p>
+              {{ body }}
+              <a class="industry__more" href="#">Know more</a>
+            </p>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

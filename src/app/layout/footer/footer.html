@@ -1,0 +1,68 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="/assets/uzofin-logo.svg" width="228" height="84" alt="UzOFin" />
+      <p class="footer__desc">
+        Experience the new age of payments with UzOFin and explore new growth opportunities to reach greater
+        heights.
+      </p>
+    </div>
+
+    <div class="footer__nav">
+      <div class="footer__col">
+        <h3 class="footer__heading">Products</h3>
+        <ul class="footer__links">
+          @for (link of productLinks; track link.label) {
+            <li>
+              <a [href]="link.href">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Company</h3>
+        <ul class="footer__links">
+          @for (link of companyLinks; track link.label) {
+            <li>
+              <a [href]="link.href">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Legal</h3>
+        <ul class="footer__links">
+          @for (link of legalLinks; track link.label) {
+            <li>
+              <a [href]="link.href">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__col footer__col--social">
+        <h3 class="footer__heading">Social</h3>
+        <ul class="footer__social">
+          @for (item of socialLinks; track item.label) {
+            <li>
+              <a class="footer__social-link" [href]="item.href" target="_blank" rel="noopener noreferrer">
+                <span class="footer__social-icon" aria-hidden="true">
+                  <span class="footer__social-logo" [style.--logo-mask]="'url(' + item.logoSrc + ')'"></span>
+                </span>
+                <span class="footer__social-handle">/uzofin</span>
+                <span class="sr-only">{{ item.label }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bar">
+    <p class="footer__copy">Copyright © 2025 UzOFin. All rights reserved</p>
+    <p class="footer__locale">India (EN)</p>
+  </div>
+</footer>

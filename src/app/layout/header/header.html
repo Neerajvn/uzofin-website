@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="bar">
+    <img class="logo" src="/assets/uzofin-logo.svg" alt="UzoFin" />
+
+    <nav class="nav" aria-label="Primary">
+      <button type="button">AI Banking</button>
+      <button type="button" class="drop">
+        Payments
+        <ng-container *ngTemplateOutlet="caret" />
+      </button>
+      <button type="button" class="drop">
+        Payouts
+        <ng-container *ngTemplateOutlet="caret" />
+      </button>
+      <button type="button">Support</button>
+    </nav>
+
+    <app-button class="start" text="Start building" />
+
+    <button
+      type="button"
+      class="toggle"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav"
+      (click)="toggleMenu()"
+    >
+      <span class="sr-only">{{ menuOpen() ? 'Close menu' : 'Open menu' }}</span>
+      <span class="toggle__icon" [class.is-open]="menuOpen()" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-nav" class="mobile" aria-label="Mobile">
+      <button type="button">AI Banking</button>
+      <button type="button" class="drop">
+        Payments
+        <ng-container *ngTemplateOutlet="caret" />
+      </button>
+      <button type="button" class="drop">
+        Payouts
+        <ng-container *ngTemplateOutlet="caret" />
+      </button>
+      <button type="button">Support</button>
+      <app-button class="start" text="Start building" />
+    </nav>
+  }
+</header>
+
+<ng-template #caret>
+  <svg class="caret" viewBox="0 0 12 12" aria-hidden="true">
+    <path d="M2.2 4.4 6 8l3.8-3.6" />
+  </svg>
+</ng-template>

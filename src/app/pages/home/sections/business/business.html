@@ -1,0 +1,19 @@
+<section class="business">
+  <img class="business__bg" src="/assets/business-block-bg.png" alt="" />
+
+  <div class="business__grid">
+    <div class="business__lead">
+      <h2>Your Business Pays Are Now Faster and Secure</h2>
+      <img class="business__spiral" src="/assets/spiral-image.svg" alt="" />
+    </div>
+
+    <div class="business__stats">
+      @for (stat of stats; track stat.label) {
+        <article>
+          <p class="value" [class]="'value value--' + stat.tone">{{ stat.value }}</p>
+          <p class="label">{{ stat.label }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

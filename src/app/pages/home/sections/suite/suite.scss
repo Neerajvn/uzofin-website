@@ -1,0 +1,283 @@
+.suite {
+  position: relative;
+  z-index: 1;
+  margin-top: -140px;
+  background: transparent;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+}
+
+.suite__grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  align-items: start;
+  gap: 2rem 2.5rem;
+  width: calc(100% - 6rem);
+  margin: 0 2rem 0 4rem;
+  padding: 7.5rem 0 6rem 4rem;
+}
+
+.suite__intro {
+  padding-top: 11rem;
+}
+
+h2 {
+  max-width: 320px;
+  margin: 0.4rem 0 1.1rem;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.suite__intro p {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  max-width: 340px;
+  margin: 0;
+  color: #ececf2;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-top: 0.45rem;
+    border-radius: 50%;
+    background: #4c8dff;
+    flex: none;
+  }
+}
+
+.suite__features {
+  display: grid;
+  grid-template-columns: max-content minmax(320px, 360px);
+  align-items: start;
+  justify-self: end;
+  width: min(860px, 100%);
+  column-gap: 3.5rem;
+}
+
+.suite__col {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-top: 3.5rem;
+}
+
+.suite__col--raise {
+  margin-top: 0;
+}
+
+.suite__col:not(.suite__col--raise) .feature {
+  width: calc(340px + 3rem);
+  max-width: 100%;
+}
+
+.feature {
+  padding: 1.75rem 1.5rem;
+  border-radius: 24px;
+  background: rgb(3 3 3 / 30%);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(0px);
+}
+
+.feature--blue {
+  --accent: #4c8dff;
+}
+
+.feature--yellow {
+  --accent: #e4ff4a;
+}
+
+.feature--purple {
+  --accent: #b06bff;
+}
+
+.feature--green {
+  --accent: #2ad6a4;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.85rem;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    width: 3px;
+    height: 28px;
+    border-radius: 1px;
+    background: var(--accent);
+    flex: none;
+  }
+}
+
+.feature__body {
+  max-width: 340px;
+  margin: 0;
+  color: #c4c4c4;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.feature__value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.35rem 0 0;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+}
+
+.feature__label {
+  margin: 0.9rem 0 0;
+  color: #c4c4c4;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .suite__grid {
+    width: calc(100% - 3rem);
+    margin: 0 1.5rem;
+    padding: 5rem 1.25rem 4rem;
+  }
+
+  .suite__intro {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .suite {
+    margin-top: 0;
+  }
+
+  .suite__grid,
+  .suite__features {
+    grid-template-columns: 1fr;
+  }
+
+  .suite__grid {
+    width: auto;
+    margin: 0;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .suite__features {
+    justify-self: stretch;
+    width: 100%;
+  }
+  .suite__col,
+  .suite__col--raise {
+    margin-top: 0;
+  }
+
+  .suite__intro {
+    padding-top: 2rem;
+  }
+
+  h2 {
+    max-width: none;
+    font-size: 34px;
+  }
+
+  h3 {
+    white-space: normal;
+    font-size: 24px;
+
+    &::before {
+      height: 24px;
+    }
+  }
+
+  .suite__intro p {
+    font-size: 15px;
+  }
+
+  .feature__body {
+    font-size: 15px;
+  }
+
+  .feature__value {
+    font-size: 24px;
+  }
+
+  .feature__label {
+    font-size: 14px;
+  }
+
+  .suite__col {
+    gap: 1.75rem;
+  }
+
+  .suite__col:not(.suite__col--raise) .feature {
+    width: auto;
+  }
+
+  .feature {
+    padding: 1.35rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .feature__body {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .suite__grid {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .suite__intro p {
+    max-width: none;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+
+    &::before {
+      height: 20px;
+    }
+  }
+
+  .feature__body {
+    font-size: 14px;
+  }
+
+  .feature__value {
+    font-size: 22px;
+  }
+}
