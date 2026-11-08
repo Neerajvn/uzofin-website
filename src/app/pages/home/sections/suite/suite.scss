@@ -54,7 +54,7 @@ h2 {
 
 .suite__features {
   display: grid;
-  grid-template-columns: max-content minmax(320px, 360px);
+  grid-template-columns: minmax(0, calc(340px + 3rem)) minmax(0, 384px);
   align-items: start;
   justify-self: end;
   width: min(860px, 100%);
@@ -66,6 +66,7 @@ h2 {
   flex-direction: column;
   gap: 4.5rem;
   margin-top: 3.5rem;
+  min-width: 0;
 }
 
 .suite__col--raise {
@@ -73,16 +74,16 @@ h2 {
 }
 
 .suite__col:not(.suite__col--raise) .feature {
-  width: calc(340px + 3rem);
-  max-width: 100%;
+  width: 100%;
+  max-width: calc(340px + 3rem);
 }
 
 .feature {
   padding: 1.75rem 1.5rem;
   border-radius: 24px;
-  background: rgb(3 3 3 / 30%);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  background: rgb(6 8 10 / 1%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 .feature--blue {
@@ -105,11 +106,16 @@ h3 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
   margin: 0 0 0.85rem;
   font-size: 28px;
   font-weight: 400;
   line-height: 1.2;
-  white-space: nowrap;
+
+  span {
+    flex: 1;
+    min-width: 0;
+  }
 
   &::before {
     content: '';
@@ -135,6 +141,8 @@ h3 {
   align-items: center;
   gap: 0.5rem;
   margin: 1.35rem 0 0;
+  min-width: 0;
+  max-width: 100%;
   font-size: 28px;
   font-weight: 400;
   line-height: 1;
@@ -158,6 +166,16 @@ h3 {
   letter-spacing: 0.08em;
   line-height: 1.45;
   text-transform: uppercase;
+}
+
+@media (min-width: 1280px) {
+  .suite__features {
+    grid-template-columns: minmax(0, calc(340px + 3rem)) 384px;
+  }
+
+  h3 span {
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -208,7 +226,6 @@ h3 {
   }
 
   h3 {
-    white-space: normal;
     font-size: 24px;
 
     &::before {
@@ -238,6 +255,7 @@ h3 {
 
   .suite__col:not(.suite__col--raise) .feature {
     width: auto;
+    max-width: none;
   }
 
   .feature {

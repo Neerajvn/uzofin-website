@@ -1,5 +1,7 @@
+<!-- Shared button: label and sliding arrow. -->
 <button class="btn" [class.btn--outline]="variant() === 'outline'" [type]="type()">
   {{ text() }}
+  <!-- Three arrows so the icon can slide across on hover. -->
   <span class="arrow-slot" aria-hidden="true">
     <span class="arrow-track">
       @for (arrow of arrows; track arrow) {

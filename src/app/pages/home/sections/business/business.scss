@@ -1,7 +1,7 @@
 .business {
   position: relative;
   z-index: 0;
-  overflow: visible;
+  overflow-x: clip;
   background: #000;
   color: #fff;
   font-family: Poppins, sans-serif;

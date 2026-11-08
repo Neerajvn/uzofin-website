@@ -10,7 +10,7 @@
         <div class="suite__col" [class.suite__col--raise]="$index === 1">
           @for (feature of column; track feature.title) {
             <article class="feature" [class]="'feature feature--' + feature.tone">
-              <h3>{{ feature.title }}</h3>
+              <h3><span>{{ feature.title }}</span></h3>
               <p class="feature__body">{{ feature.body }}</p>
               <p class="feature__value">{{ feature.value }}</p>
               <p class="feature__label">{{ feature.label }}</p>

@@ -23,4 +23,19 @@ const CARDS: IndustryCard[] = [
 export class IndustryStandard {
   protected readonly body = CARD_BODY;
   protected readonly marqueeCards: IndustryCard[] = [...CARDS, ...CARDS];
+
+  // Replay the border reflection from the top-left on every hover.
+  protected restartBorderSheen(event: Event): void {
+    const sheen = (event.currentTarget as HTMLElement | null)?.querySelector(
+      '.industry__sheen',
+    );
+
+    if (!(sheen instanceof HTMLElement)) {
+      return;
+    }
+
+    sheen.style.animation = 'none';
+    void sheen.offsetWidth;
+    sheen.style.animation = '';
+  }
 }

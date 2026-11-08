@@ -20,7 +20,9 @@
     <div class="industry__track">
       <ul class="industry__group">
         @for (card of marqueeCards; track $index) {
-          <li class="industry__card">
+          <li class="industry__card" (mouseenter)="restartBorderSheen($event)">
+            <!-- Travelling metallic border reflection. -->
+            <span class="industry__sheen" aria-hidden="true"></span>
             <img
               class="industry__tick"
               src="/assets/circle_tick.svg"
