@@ -1,16 +1,20 @@
+<!-- Business: background, headline, and key stats. -->
 <section class="business">
+  <!-- Background artwork. -->
   <img class="business__bg" src="/assets/business-block-bg.png" alt="" />
 
   <div class="business__grid">
+    <!-- Headline and spiral graphic. -->
     <div class="business__lead">
       <h2>Your Business Pays Are Now Faster and Secure</h2>
       <img class="business__spiral" src="/assets/spiral-image.svg" alt="" />
     </div>
 
+    <!-- Transaction, uptime, and onboarding stats. -->
     <div class="business__stats">
       @for (stat of stats; track stat.label) {
         <article>
-          <p class="value" [class]="'value value--' + stat.tone">{{ stat.value }}</p>
+          <p class="value" [class]="'value value--' + stat.tone">{{ stat.value }}@if (stat.note) {<span class="value__note"> {{ stat.note }}</span>}</p>
           <p class="label">{{ stat.label }}</p>
         </article>
       }

@@ -78,11 +78,22 @@ h2 {
 }
 
 .value--blue {
+  font-size: 106px;
   background-image: linear-gradient(to right, #0047ff, #00bcd4);
 }
 
 .value--teal {
+  font-size: 110px;
   background-image: linear-gradient(to right, #00ffbd, #025b8c);
+}
+
+.value__note {
+  font-size: calc(70 / 110 * 1em);
+  background-image: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .label {

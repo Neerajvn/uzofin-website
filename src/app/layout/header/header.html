@@ -1,7 +1,10 @@
+<!-- Site header: logo, primary navigation, and mobile menu. -->
 <header class="header">
   <div class="bar">
+    <!-- Brand logo. -->
     <img class="logo" src="/assets/uzofin-logo.svg" alt="UzoFin" />
 
+    <!-- Desktop navigation. -->
     <nav class="nav" aria-label="Primary">
       <button type="button">AI Banking</button>
       <button type="button" class="drop">
@@ -15,8 +18,10 @@
       <button type="button">Support</button>
     </nav>
 
+    <!-- Start building. -->
     <app-button class="start" text="Start building" />
 
+    <!-- Mobile menu toggle. -->
     <button
       type="button"
       class="toggle"
@@ -29,6 +34,7 @@
     </button>
   </div>
 
+  <!-- Mobile navigation, shown while the menu is open. -->
   @if (menuOpen()) {
     <nav id="mobile-nav" class="mobile" aria-label="Mobile">
       <button type="button">AI Banking</button>
@@ -46,6 +52,7 @@
   }
 </header>
 
+<!-- Dropdown caret shared by the Payments and Payouts items. -->
 <ng-template #caret>
   <svg class="caret" viewBox="0 0 12 12" aria-hidden="true">
     <path d="M2.2 4.4 6 8l3.8-3.6" />

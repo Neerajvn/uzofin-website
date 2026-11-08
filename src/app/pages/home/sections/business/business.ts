@@ -10,7 +10,13 @@ export class Business {
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly destroyRef = inject(DestroyRef);
 
-  protected readonly stats = [
+  // Headline figures: volume, uptime, and onboarding speed.
+  protected readonly stats: {
+    value: string;
+    note?: string;
+    label: string;
+    tone: string;
+  }[] = [
     {
       value: '11.5M+',
       label: 'Transactions processed monthly',
@@ -22,7 +28,8 @@ export class Business {
       tone: 'blue',
     },
     {
-      value: '70% Faster',
+      value: '70%',
+      note: 'Faster',
       label: 'Merchant onboarding with AI automation',
       tone: 'teal',
     },
@@ -33,6 +40,7 @@ export class Business {
       const section = this.host.nativeElement.querySelector('.business');
       const spiral = section?.querySelector('.business__spiral');
 
+      // Leave the spiral still when motion is reduced or it is missing.
       if (!spiral || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
       }
@@ -43,6 +51,7 @@ export class Business {
 
       const context = gsap.context(() => {}, section);
 
+      // Start the spin once the section is in view.
       const observer = new IntersectionObserver(
         (entries) => {
           if (!entries.some((entry) => entry.isIntersecting)) {
@@ -51,6 +60,7 @@ export class Business {
 
           observer.disconnect();
           context.add(() => {
+            // A short turn, then a continuous spin.
             gsap
               .timeline()
               .to(spiral, { rotation: 180, duration: 1.5, ease: 'power2.out' })

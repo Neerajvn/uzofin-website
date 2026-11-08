@@ -14,17 +14,20 @@ export class SmoothScroll {
     this.zone.runOutsideAngular(() => {
       let current = window.scrollY;
       let target = window.scrollY;
-      let fromUs = false;
+      let driving = false;
+      const root = document.documentElement;
+      const previousOverscroll = root.style.overscrollBehavior;
 
       const limit = () =>
-        Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        Math.max(0, root.scrollHeight - window.innerHeight);
 
       const onWheel = (event: WheelEvent) => {
-        if (event.ctrlKey) {
+        if (event.ctrlKey || !event.cancelable) {
           return;
         }
 
         event.preventDefault();
+        driving = true;
         const unit =
           event.deltaMode === WheelEvent.DOM_DELTA_LINE
             ? 32
@@ -35,8 +38,7 @@ export class SmoothScroll {
       };
 
       const onScroll = () => {
-        if (fromUs) {
-          fromUs = false;
+        if (driving) {
           return;
         }
 
@@ -44,23 +46,26 @@ export class SmoothScroll {
       };
 
       const tick = () => {
-        const next = current + (target - current) * 0.14;
-        current = Math.abs(target - next) < 0.5 ? target : next;
+        const delta = target - current;
+        current = Math.abs(delta) < 0.5 ? target : current + delta * 0.14;
 
-        if (Math.abs(current - window.scrollY) < 0.5) {
-          return;
+        if (Math.abs(current - window.scrollY) >= 1) {
+          window.scrollTo({ top: current, left: 0, behavior: 'instant' });
         }
 
-        fromUs = true;
-        window.scrollTo(0, current);
+        if (Math.abs(target - current) < 0.5 && Math.abs(target - window.scrollY) < 1) {
+          driving = false;
+        }
       };
 
-      window.addEventListener('wheel', onWheel, { passive: false });
+      root.style.overscrollBehavior = 'none';
+      window.addEventListener('wheel', onWheel, { passive: false, capture: true });
       window.addEventListener('scroll', onScroll, { passive: true });
       gsap.ticker.add(tick);
 
       this.destroyRef.onDestroy(() => {
-        window.removeEventListener('wheel', onWheel);
+        root.style.overscrollBehavior = previousOverscroll;
+        window.removeEventListener('wheel', onWheel, { capture: true });
         window.removeEventListener('scroll', onScroll);
         gsap.ticker.remove(tick);
       });

@@ -13,6 +13,7 @@ button {
   align-items: center;
   gap: 0.55rem;
   padding: 15px 22px;
+  letter-spacing: 0%;
   border: 1px solid transparent;
   border-radius: 999px;
   background:
@@ -23,7 +24,6 @@ button {
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;

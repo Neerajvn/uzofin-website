@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './logos.scss',
 })
 export class Logos {
+  // Partner logos shown under the hero.
   protected readonly logos = [
     { src: '/assets/companies-logo/company-1.svg', alt: 'Brave' },
     { src: '/assets/companies-logo/company-2.svg', alt: 'Circle' },

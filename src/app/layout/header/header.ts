@@ -12,6 +12,7 @@ export class Header {
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly destroyRef = inject(DestroyRef);
 
+  // Whether the mobile navigation is open.
   protected readonly menuOpen = signal(false);
 
   constructor() {
@@ -21,6 +22,7 @@ export class Header {
 
       const watch = () => {
         const section = document.querySelector('.logos');
+        // The logos section may not be in the document on the first frame.
         if (!section || typeof IntersectionObserver === 'undefined') {
           if (!section) {
             frame = requestAnimationFrame(watch);
@@ -30,6 +32,7 @@ export class Header {
 
         observer = new IntersectionObserver(
           ([entry]) => {
+            // Hide the header once the logos section reaches the top of the viewport.
             const reached = entry.boundingClientRect.top <= 1;
             this.host.nativeElement.classList.toggle('is-hidden', reached);
             this.host.nativeElement.toggleAttribute('inert', reached);
@@ -50,6 +53,7 @@ export class Header {
     });
   }
 
+  // Open or close the mobile menu.
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);
   }
